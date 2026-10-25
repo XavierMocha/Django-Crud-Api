@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap');
+
+:root {
+  --bg-0: #e4ece8;
+  --bg-1: #f3f7f5;
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-solid: #f8fbf9;
+  --ink: #1a2421;
+  --muted: #5a6b64;
+  --line: rgba(26, 36, 33, 0.1);
+  --brand: #1b5e4a;
+  --brand-soft: #3d8b6e;
+  --income: #2a7a5c;
+  --expense: #b54a3a;
+  --radius: 14px;
+  --sidebar-w: 248px;
+  --shadow: 0 1px 0 rgba(26, 36, 33, 0.04);
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Source Sans 3', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background:
+    radial-gradient(900px 480px at 12% -10%, rgba(61, 139, 110, 0.22), transparent 55%),
+    radial-gradient(700px 420px at 92% 8%, rgba(74, 107, 138, 0.16), transparent 50%),
+    linear-gradient(165deg, var(--bg-0), var(--bg-1) 45%, #eef3f0);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+code {
+  font-size: 0.9em;
+  background: rgba(27, 94, 74, 0.08);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
