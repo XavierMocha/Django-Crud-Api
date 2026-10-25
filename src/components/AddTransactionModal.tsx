@@ -40,7 +40,7 @@ export function AddTransactionModal({
       description: description.trim(),
       amount: value,
       type,
-      category,
+      category: safeCategory,
       date,
       account,
     })
@@ -114,7 +114,7 @@ export function AddTransactionModal({
             <label>
               Categoría
               <select
-                value={category}
+                value={safeCategory}
                 onChange={(e) => setCategory(e.target.value as Transaction['category'])}
               >
                 {filtered.map((c) => (
