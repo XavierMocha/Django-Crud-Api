@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Genera la plantilla Excel CajaClara para control de finanzas personales."""
 
+from datetime import date
 from pathlib import Path
 
 from openpyxl import Workbook
@@ -96,21 +97,21 @@ def build() -> None:
     ]
 
     transactions = [
-        ("2026-10-01", "Nómina octubre", "Ingreso", "Salario", "Cuenta corriente", 2450.00),
-        ("2026-10-02", "Alquiler", "Gasto", "Vivienda", "Cuenta corriente", 620.00),
-        ("2026-10-04", "Supermercado", "Gasto", "Alimentación", "Cuenta corriente", 87.40),
-        ("2026-10-06", "Proyecto web", "Ingreso", "Freelance", "Cuenta corriente", 480.00),
-        ("2026-10-07", "Gasolina", "Gasto", "Transporte", "Efectivo", 42.50),
-        ("2026-10-08", "Luz y agua", "Gasto", "Servicios", "Cuenta corriente", 98.20),
-        ("2026-10-10", "Cena fuera", "Gasto", "Alimentación", "Cuenta corriente", 54.90),
-        ("2026-10-12", "Dividendos ETF", "Ingreso", "Inversiones", "Ahorros", 65.30),
-        ("2026-10-14", "Farmacia", "Gasto", "Salud", "Efectivo", 28.75),
-        ("2026-10-15", "Streaming + cine", "Gasto", "Ocio", "Cuenta corriente", 36.99),
-        ("2026-10-18", "Ropa otoño", "Gasto", "Compras", "Cuenta corriente", 119.90),
-        ("2026-10-20", "Mercado semanal", "Gasto", "Alimentación", "Cuenta corriente", 62.15),
-        ("2026-10-21", "Taxi aeropuerto", "Gasto", "Transporte", "Efectivo", 28.00),
-        ("2026-10-22", "Consultoría 2h", "Ingreso", "Freelance", "Cuenta corriente", 160.00),
-        ("2026-10-23", "Internet fibra", "Gasto", "Servicios", "Cuenta corriente", 39.90),
+        (date(2026, 10, 1), "Nómina octubre", "Ingreso", "Salario", "Cuenta corriente", 2450.00),
+        (date(2026, 10, 2), "Alquiler", "Gasto", "Vivienda", "Cuenta corriente", 620.00),
+        (date(2026, 10, 4), "Supermercado", "Gasto", "Alimentación", "Cuenta corriente", 87.40),
+        (date(2026, 10, 6), "Proyecto web", "Ingreso", "Freelance", "Cuenta corriente", 480.00),
+        (date(2026, 10, 7), "Gasolina", "Gasto", "Transporte", "Efectivo", 42.50),
+        (date(2026, 10, 8), "Luz y agua", "Gasto", "Servicios", "Cuenta corriente", 98.20),
+        (date(2026, 10, 10), "Cena fuera", "Gasto", "Alimentación", "Cuenta corriente", 54.90),
+        (date(2026, 10, 12), "Dividendos ETF", "Ingreso", "Inversiones", "Ahorros", 65.30),
+        (date(2026, 10, 14), "Farmacia", "Gasto", "Salud", "Efectivo", 28.75),
+        (date(2026, 10, 15), "Streaming + cine", "Gasto", "Ocio", "Cuenta corriente", 36.99),
+        (date(2026, 10, 18), "Ropa otoño", "Gasto", "Compras", "Cuenta corriente", 119.90),
+        (date(2026, 10, 20), "Mercado semanal", "Gasto", "Alimentación", "Cuenta corriente", 62.15),
+        (date(2026, 10, 21), "Taxi aeropuerto", "Gasto", "Transporte", "Efectivo", 28.00),
+        (date(2026, 10, 22), "Consultoría 2h", "Ingreso", "Freelance", "Cuenta corriente", 160.00),
+        (date(2026, 10, 23), "Internet fibra", "Gasto", "Servicios", "Cuenta corriente", 39.90),
     ]
 
     monthly = [
@@ -267,7 +268,7 @@ def build() -> None:
 
     for i, (fecha, desc, tipo, cat, cuenta, monto) in enumerate(transactions, start=2):
         d = ws_tx.cell(row=i, column=1, value=fecha)
-        d.number_format = "YYYY-MM-DD"
+        d.number_format = "DD/MM/YYYY"
         d.border = thin
         ws_tx.cell(row=i, column=2, value=desc).border = thin
         ws_tx.cell(row=i, column=3, value=tipo).border = thin
