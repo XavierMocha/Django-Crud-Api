@@ -1,44 +1,36 @@
-# CajaClara — Dashboard de finanzas personales
+# CajaClara — plantilla Excel de finanzas personales
 
-Plantilla en React + TypeScript + Vite para controlar ingresos, gastos, presupuestos y cuentas.
+Plantilla en un solo archivo Excel (`.xlsx`) para controlar ingresos, gastos, presupuestos y cuentas, con un **Dashboard** que se actualiza con fórmulas.
 
-## Incluye
+## Archivo
 
-- Resumen con balance, ingresos, gastos y tasa de ahorro
-- Gráfico de flujo de caja (6 meses)
-- Distribución de gastos por categoría
-- Presupuestos con avance mensual
-- Listado de movimientos y altas desde modal
-- Navegación: resumen, movimientos, cuentas, presupuestos, ahorros, ajustes
+- [`CajaClara_Finanzas.xlsx`](./CajaClara_Finanzas.xlsx) — ábrelo en Excel, Google Sheets o LibreOffice Calc
 
-## Arranque
+## Hojas
 
-```bash
-npm install
-npm run dev
-```
-
-Build de producción:
-
-```bash
-npm run build
-npm run preview
-```
-
-## Personalización
-
-| Qué | Dónde |
+| Hoja | Uso |
 | --- | --- |
-| Datos de ejemplo | `src/data/sample.ts` |
-| Tipos (categorías, transacciones) | `src/types/finance.ts` |
-| Colores y tipografía | `src/index.css` (`:root`) |
-| Layout y componentes | `src/components/` |
+| **Instrucciones** | Cómo usar la plantilla |
+| **Dashboard** | KPIs del mes, gráfico de gastos, presupuestos y flujo de caja |
+| **Movimientos** | Registro de transacciones (fuente de verdad) |
+| **Categorías** | Catálogo ingreso / gasto |
+| **Cuentas** | Saldos por cuenta |
+| **Presupuestos** | Límites mensuales y avance |
+| **Histórico_mensual** | Datos del gráfico de barras |
 
-Los movimientos nuevos se guardan en estado local del navegador (sin backend). Sustituye el estado por tu API cuando quieras persistencia real.
+## Uso rápido
 
-## Stack
+1. En **Dashboard**, ajusta **Mes (B2)** y **Año (D2)**.
+2. Registra operaciones en **Movimientos** (hay listas desplegables).
+3. Personaliza **Categorías**, **Cuentas** y **Presupuestos**.
+4. Completa **Histórico_mensual** si quieres otro periodo en el gráfico.
 
-- React 19 + TypeScript
-- Vite 8
-- Recharts
-- Lucide React
+## Regenerar el archivo
+
+Si modificas el generador:
+
+```bash
+python3 scripts/build_excel_template.py
+```
+
+Requiere `openpyxl` (`pip install openpyxl`).
